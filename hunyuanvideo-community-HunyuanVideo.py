@@ -1,4 +1,5 @@
 import torch
+import numpy as np
 from diffusers import HunyuanVideoPipeline, HunyuanVideoTransformer3DModel
 from diffusers.utils import export_to_video
 
@@ -41,10 +42,12 @@ for start in range(0, num_frames, chunk_size):
         num_frames=end-start,
         num_inference_steps=30
     ).frames
+    
+    # Convert PIL Images to NumPy arrays
+    frames = [np.array(frame) for frame in frames]
     all_frames.extend(frames)
 
 # Export full video
 export_to_video(all_frames, "output.mp4", fps=15)
 
 print("Video saved as output.mp4")
-

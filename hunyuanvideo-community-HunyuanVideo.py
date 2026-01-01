@@ -34,19 +34,6 @@ num_frames = 61
 chunk_size = 10  # generate 10 frames at a time
 all_frames = []
 
-# for start in range(0, num_frames, chunk_size):
-#     end = min(start + chunk_size, num_frames)
-#     frames = pipe(
-#         prompt="A cat walks on the grass, realistic",
-#         height=320,
-#         width=512,
-#         num_frames=end-start,
-#         num_inference_steps=30
-#     ).frames
-    
-#     # Convert PIL Images to NumPy arrays
-#     frames = [np.array(frame) for frame in frames]
-#     all_frames.extend(frames)
 
 output = pipe(
     prompt="A cat walks on the grass, realistic",
@@ -54,7 +41,7 @@ output = pipe(
     width=512,
     num_frames=30,
     num_inference_steps=30,
-).frames[0]
+).frames
 # Export full video
 # export_to_video(all_frames, "output.mp4", fps=15)
 export_to_video(output, "output.mp4", fps=15)

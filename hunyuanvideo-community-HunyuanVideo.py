@@ -9,7 +9,7 @@ model_id = "hunyuanvideo-community/HunyuanVideo"
 transformer = HunyuanVideoTransformer3DModel.from_pretrained(
     model_id,
     subfolder="transformer",
-    torch_dtype=torch.float16  # use float16 for GPU
+    torch_dtype=torch.float16
 )
 
 # Load pipeline
@@ -19,23 +19,32 @@ pipe = HunyuanVideoPipeline.from_pretrained(
     torch_dtype=torch.float16
 )
 
-# Move entire pipeline to GPU
+# Move pipeline to GPU
 pipe = pipe.to("cuda")
 
 # Memory optimizations
 pipe.vae.enable_tiling()          # reduce VAE memory usage
 pipe.enable_attention_slicing()   # reduce attention memory usage
+pipe.enable_model_cpu_offload()   # offload parts of model to CPU to save GPU memory
 
-# Video generation
-output = pipe(
-    prompt="A cat walks on the grass, realistic",
-    height=320,
-    width=512,
-    num_frames=61,
-    num_inference_steps=30,
-).frames[0]
+# Video generation in chunks to fit GPU memory
+num_frames = 61
+chunk_size = 10  # generate 10 frames at a time
+all_frames = []
 
-# Export video
-export_to_video(output, "output.mp4", fps=15)
+for start in range(0, num_frames, chunk_size):
+    end = min(start + chunk_size, num_frames)
+    frames = pipe(
+        prompt="A cat walks on the grass, realistic",
+        height=320,
+        width=512,
+        num_frames=end-start,
+        num_inference_steps=30
+    ).frames
+    all_frames.extend(frames)
+
+# Export full video
+export_to_video(all_frames, "output.mp4", fps=15)
 
 print("Video saved as output.mp4")
+

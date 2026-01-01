@@ -1,5 +1,5 @@
 # merge_video_audio.py
-from moviepy.editor import VideoFileClip, AudioFileClip, concatenate_videoclips
+from moviepy import VideoFileClip, AudioFileClip, concatenate_videoclips
 
 # Paths to your generated files
 video_path = "output.mp4"       # from file1.py

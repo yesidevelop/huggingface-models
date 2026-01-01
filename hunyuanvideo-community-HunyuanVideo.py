@@ -20,3 +20,6 @@ output = pipe(
     num_inference_steps=30,
 ).frames[0]
 export_to_video(output, "output.mp4", fps=15)
+
+print(f'Number of frames: {len(output)}')
+

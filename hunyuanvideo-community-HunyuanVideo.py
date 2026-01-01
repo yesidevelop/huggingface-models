@@ -13,7 +13,7 @@ pipe.vae.enable_tiling()
 pipe.enable_model_cpu_offload()
 
 output = pipe(
-    prompt="A cat walks on the grass, realistic",
+    prompt="A high-quality cinematic shot of a serene female yoga instructor in a bright, minimalist studio. She is wearing a vibrant pink athletic yoga set. The camera starts in a medium shot as she gracefully transitions into a Tree Pose (Vrikshasana), lifting one foot to her inner thigh and bringing her hands to a prayer position. Soft natural light flows through large windows in the background. She maintains perfect balance on one leg, her core visible and engaged, with a calm and focused expression.",
     height=320,
     width=512,
     num_frames=61,

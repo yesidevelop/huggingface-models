@@ -52,7 +52,7 @@ output = pipe(
     prompt="A cat walks on the grass, realistic",
     height=320,
     width=512,
-    num_frames=1,
+    num_frames=15,
     num_inference_steps=30,
 ).frames[0]
 # Export full video

@@ -13,7 +13,7 @@ pipe.vae.enable_tiling()
 pipe.enable_model_cpu_offload()
 
 output = pipe(
-    prompt="Cinematic video of a female yoga instructor in a pink outfit performing Tree Pose. She stands in a sunlit, minimalist studio, balancing steadily on one leg with hands in prayer position. Sharp focus on her engaged core and calm expression. Smooth camera zoom, 4k, realistic movement, serene atmosphere.",
+    prompt="Cinematic video of a female yoga instructor in a pink outfit performing Tree Pose. She stands in a sunlit, minimalist studio, balancing steadily on one leg with hands in prayer position. Sharp focus on her engaged core and calm expression. Smooth camera zoom, realistic movement, serene atmosphere.",
     height=720,
     width=1280,
     num_frames=61,

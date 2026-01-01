@@ -1,29 +1,9 @@
 import torch
-from transformers import pipeline
 import soundfile as sf
+from transformers import pipeline
 
-device = "cuda" if torch.cuda.is_available() else "cpu"
+synthesiser = pipeline("text-to-audio", "facebook/musicgen-stereo-medium", device="cuda:0", torch_dtype=torch.float16)
 
-music_pipe = pipeline(
-    "text-to-audio",
-    model="facebook/musicgen-stereo-medium",
-    device=0 if device == "cuda" else -1
-)
+music = synthesiser("lo-fi music with a soothing melody", forward_params={"max_new_tokens": 256})
 
-music_prompt = (
-    "Calm ambient yoga music, soft pads, slow tempo, "
-    "peaceful, cinematic, relaxing atmosphere"
-)
-
-audio = music_pipe(
-    music_prompt,
-    forward_params={
-        "max_new_tokens": 512  # controls length
-    }
-)
-
-sf.write(
-    "bg_music.wav",
-    audio["audio"][0],
-    samplerate=audio["sampling_rate"]
-)
+sf.write("musicgen_out.wav", music["audio"][0].T, music["sampling_rate"])

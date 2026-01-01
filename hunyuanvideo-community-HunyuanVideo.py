@@ -55,6 +55,7 @@ output = pipe(
     num_inference_steps=30,
 ).frames[0]
 # Export full video
-export_to_video(all_frames, "output.mp4", fps=15)
+# export_to_video(all_frames, "output.mp4", fps=15)
+export_to_video(output, "output.mp4", fps=15)
 
 print("Video saved as output.mp4")

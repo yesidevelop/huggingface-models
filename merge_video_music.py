@@ -1,17 +1,17 @@
-# merge_video_audio.py
-from moviepy import VideoFileClip, AudioFileClip, concatenate_videoclips
+from moviepy import VideoFileClip, AudioFileClip
 
-# Paths to your generated files
-video_path = "output.mp4"       # from file1.py
-audio_path = "musicgen_out.wav" # from file2.py
-output_path = "final_output.mp4"
+# 1. Load the video and audio files
+video = VideoFileClip("output.mp4")
+audio = AudioFileClip("musicgen_out.wav")
 
-# Load video and audio
-video = VideoFileClip(video_path).subclip(0, 10)  # take first 10 seconds
-audio = AudioFileClip(audio_path).subclip(0, 10)  # first 10 seconds of audio
+# 2. Set the audio of the video clip
+# This replaces the original audio (if any)
+final_video = video.with_audio(audio)
 
-# Set audio to video
-video = video.set_audio(audio)
+# 3. Write the result to a file
+# You can use 'mp4', 'mkv', etc.
+final_video.write_videofile("merged_output.mp4", codec="libx264", audio_codec="aac")
 
-# Write final output
-video.write_videofile(output_path, fps=15, codec="libx264", audio_codec="aac")
+# 4. Close the clips to free up system resources
+video.close()
+audio.close()

@@ -16,7 +16,7 @@ output = pipe(
     prompt="Cinematic video of a female yoga instructor in a pink outfit performing Tree Pose. She stands in a sunlit, minimalist studio, balancing steadily on one leg with hands in prayer position. Sharp focus on her engaged core and calm expression. Smooth camera zoom, realistic movement, serene atmosphere.",
     height=720,
     width=1280,
-    num_frames=61,
+    num_frames=151,
     num_inference_steps=30,
 ).frames[0]
 export_to_video(output, "output.mp4", fps=15)

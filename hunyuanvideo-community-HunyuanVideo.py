@@ -10,7 +10,8 @@ model_id = "hunyuanvideo-community/HunyuanVideo"
 transformer = HunyuanVideoTransformer3DModel.from_pretrained(
     model_id,
     subfolder="transformer",
-    torch_dtype=torch.float16
+    torch_dtype=torch.float16,
+    device_map="auto"
 )
 
 # Load pipeline

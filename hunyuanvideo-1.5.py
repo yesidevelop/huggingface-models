@@ -7,7 +7,6 @@ from diffusers.utils import export_to_video
 # ----------------------------
 dtype = torch.bfloat16
 device = "cuda:0"
-
 FPS = 24
 SECONDS = 10
 NUM_FRAMES = FPS * SECONDS  # 240 frames
@@ -25,10 +24,7 @@ negative_prompt = (
     "extra limbs, unrealistic motion"
 )
 
-# ----------------------------
-# Sanity check
-# ----------------------------
-assert torch.cuda.is_available(), "CUDA GPU is required for HunyuanVideo"
+
 
 # ----------------------------
 # Load pipeline
@@ -49,15 +45,12 @@ generator = torch.Generator(device=device).manual_seed(seed)
 # ----------------------------
 # Generate video
 # ----------------------------
-with torch.autocast("cuda", dtype=dtype):
-    video = pipe(
-        prompt=prompt,
-        negative_prompt=negative_prompt,
-        generator=generator,
-        num_frames=NUM_FRAMES,
-        num_inference_steps=40,
-        guidance_scale=7.0,
-    ).frames[0]
+video = pipe(
+    prompt=prompt,
+    generator=generator,
+    num_frames=NUM_FRAMES,
+    num_inference_steps=40,
+).frames[0]
 
 # ----------------------------
 # Export

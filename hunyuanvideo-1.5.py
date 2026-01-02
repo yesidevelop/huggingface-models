@@ -8,8 +8,8 @@ from diffusers.utils import export_to_video
 dtype = torch.bfloat16
 device = "cuda:0"
 FPS = 24
-SECONDS = 10
-NUM_FRAMES = FPS * SECONDS  # 240 frames
+SECONDS = 4
+NUM_FRAMES = FPS * SECONDS  # 96 frames
 
 seed = 42
 

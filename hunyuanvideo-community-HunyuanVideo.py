@@ -2,8 +2,7 @@ import torch
 from diffusers import HunyuanVideoPipeline, HunyuanVideoTransformer3DModel
 from diffusers.utils import export_to_video
 
-# model_id = "hunyuanvideo-community/HunyuanVideo"
-model_id = "tencent/HunyuanVideo-1.5"
+model_id = "hunyuanvideo-community/HunyuanVideo"
 transformer = HunyuanVideoTransformer3DModel.from_pretrained(
     model_id, subfolder="transformer", torch_dtype=torch.bfloat16
 )

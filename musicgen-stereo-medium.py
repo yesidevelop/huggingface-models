@@ -4,11 +4,12 @@ import scipy
 synthesiser = pipeline("text-to-audio", "facebook/musicgen-large")
 
 prompt = (
-    "Whimsical and magical Pied Piper style music, "
-    "playful melody led by pan flute and piccolo, "
-    "light harp and woodwinds, fast tempo, "
-    "airy, cheerful, mischievous, fairy-tale soundtrack, "
-    "cinematic and enchanting, lively folk-style rhythm"
+    "Energetic and catchy K-pop music, "
+    "bright synths, punchy electronic drums, groovy bassline, "
+    "playful vocal melodies, layered harmonies, sparkling arpeggios, "
+    "upbeat, cheerful, vibrant, fun, danceable, polished pop production, "
+    "cinematic and colorful, high energy performance vibe, "
+    "modern Korean pop soundtrack style"
 )
 music = synthesiser(prompt, forward_params={"do_sample": True, "max_new_tokens": 800})
 

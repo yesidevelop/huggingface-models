@@ -12,7 +12,7 @@ pipe.to(device)
 
 
 image = load_image(
-    "https://variety.com/wp-content/uploads/2025/10/Kpop-Demon-Hunters-1.webp"
+    "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-560w,f_auto,q_auto:best/rockcms/2025-07/250709-Kpop-Demon-Hunters-vl-256p-ea5850.jpg"
 )
 max_area = 480 * 832
 aspect_ratio = image.height / image.width

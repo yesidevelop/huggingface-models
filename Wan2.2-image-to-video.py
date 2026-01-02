@@ -10,6 +10,8 @@ device = "cuda"
 pipe = WanImageToVideoPipeline.from_pretrained(model_id, torch_dtype=dtype, low_cpu_mem_usage=True)
 pipe.to(device)
 
+pipe.enable_model_cpu_offload()
+
 
 image = load_image(
     "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-560w,f_auto,q_auto:best/rockcms/2025-07/250709-Kpop-Demon-Hunters-vl-256p-ea5850.jpg"

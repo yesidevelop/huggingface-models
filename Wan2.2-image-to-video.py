@@ -36,7 +36,7 @@ output = pipe(
     width=width,
     num_frames=81,
     guidance_scale=3.5,
-    num_inference_steps=40,
+    num_inference_steps=30,
     generator=generator,
 ).frames[0]
 export_to_video(output, "i2v_output.mp4", fps=16)

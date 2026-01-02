@@ -13,27 +13,27 @@ NUM_FRAMES = FPS * SECONDS  # 60 frames
 
 seed = 42
 
-# prompt = (
-#     "A cinematic wildlife documentary scene of a powerful tiger hunting a deer "
-#     "in a dense green forest, fast dynamic movement, realistic animals, "
-#     "dramatic lighting, shallow depth of field, ultra realistic, 4k nature documentary"
-# )
-
-# negative_prompt = (
-#     "cartoon, anime, low quality, blurry, artifacts, distorted anatomy, "
-#     "extra limbs, unrealistic motion"
-# )
-
 prompt = (
-    "A cinematic K-pop music video featuring a mystical daemon performing "
-    "intense dance moves on a futuristic neon-lit stage, dynamic camera angles, "
-    "stylish costumes, dramatic lighting, vibrant colors, ultra realistic, 4k cinematic"
+    "A cinematic wildlife documentary scene of a powerful tiger hunting a deer "
+    "in a dense green forest, fast dynamic movement, realistic animals, "
+    "dramatic lighting, shallow depth of field, ultra realistic, 4k nature documentary"
 )
 
 negative_prompt = (
     "cartoon, anime, low quality, blurry, artifacts, distorted anatomy, "
-    "extra limbs, unrealistic motion, messy background, bad lighting"
+    "extra limbs, unrealistic motion"
 )
+
+# prompt = (
+#     "A cinematic K-pop music video featuring a mystical daemon performing "
+#     "intense dance moves on a futuristic neon-lit stage, dynamic camera angles, "
+#     "stylish costumes, dramatic lighting, vibrant colors, ultra realistic, 4k cinematic"
+# )
+
+# negative_prompt = (
+#     "cartoon, anime, low quality, blurry, artifacts, distorted anatomy, "
+#     "extra limbs, unrealistic motion, messy background, bad lighting"
+# )
 
 
 

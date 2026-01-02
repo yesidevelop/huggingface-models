@@ -7,7 +7,7 @@ model_id = "Wan-AI/Wan2.2-I2V-A14B-Diffusers"
 dtype = torch.bfloat16
 device = "cuda"
 
-pipe = WanImageToVideoPipeline.from_pretrained(model_id, torch_dtype=dtype)
+pipe = WanImageToVideoPipeline.from_pretrained(model_id, torch_dtype=dtype, low_cpu_mem_usage=True)
 pipe.to(device)
 
 

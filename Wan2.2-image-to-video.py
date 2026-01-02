@@ -1,0 +1,38 @@
+import torch
+import numpy as np
+from diffusers import WanImageToVideoPipeline
+from diffusers.utils import export_to_video, load_image
+
+model_id = "Wan-AI/Wan2.2-I2V-A14B-Diffusers"
+dtype = torch.bfloat16
+device = "cuda"
+
+pipe = WanImageToVideoPipeline.from_pretrained(model_id, torch_dtype=dtype)
+pipe.to(device)
+
+
+image = load_image(
+    "https://variety.com/wp-content/uploads/2025/10/Kpop-Demon-Hunters-1.webp"
+)
+max_area = 480 * 832
+aspect_ratio = image.height / image.width
+mod_value = pipe.vae_scale_factor_spatial * pipe.transformer.config.patch_size[1]
+height = round(np.sqrt(max_area * aspect_ratio)) // mod_value * mod_value
+width = round(np.sqrt(max_area / aspect_ratio)) // mod_value * mod_value
+image = image.resize((width, height))
+prompt = "A dynamic concert scene of three animated female K‑pop idols performing on a neon‑lit stage with dramatic fantasy lighting, energetic choreography, and modern futuristic costumes inspired by Korean pop culture, vibrant colors, dramatic motion blur, anime‑influenced stylized 3D animation, detailed expressions and synchronized dance poses, high energy performance with musical instruments and light effects, cinematic composition, ultra‑detailed, sharp focus, hype crowd in background"
+
+negative_prompt = "stiff posing, static figures, unnatural anatomy, extra limbs, demonic weapons, combat poses, motion blur artifacts, low resolution, smudged faces, text or logos, dull lighting, muted colors, visual noise, broken limbs, closed eyes, awkward expressions, busy background that distracts from the performance"
+generator = torch.Generator(device=device).manual_seed(0)
+output = pipe(
+    image=image,
+    prompt=prompt,
+    negative_prompt=negative_prompt,
+    height=height,
+    width=width,
+    num_frames=81,
+    guidance_scale=3.5,
+    num_inference_steps=40,
+    generator=generator,
+).frames[0]
+export_to_video(output, "i2v_output.mp4", fps=16)

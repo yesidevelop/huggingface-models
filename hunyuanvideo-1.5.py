@@ -28,7 +28,6 @@ NEGATIVE_PROMPT = (
 # ----------------------------
 transformer = HunyuanVideoTransformer3DModel.from_pretrained(
     MODEL_ID,
-    subfolder="transformer",
     torch_dtype=torch.float16
 )
 

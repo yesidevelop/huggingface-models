@@ -11,9 +11,7 @@ device = "cuda"
 # pipe = WanImageToVideoPipeline.from_pretrained(model_id, torch_dtype=dtype)
 
 
-# pipe.enable_model_cpu_offload()
-# pipe.vae.enable_tiling()
-# pipe.enable_attention_slicing()
+
 
 local_model_path = "./wan_i2v_local"
 
@@ -33,6 +31,9 @@ else:
     )
 
 pipe.to(device)
+pipe.enable_model_cpu_offload()
+pipe.vae.enable_tiling()
+pipe.enable_attention_slicing()
 
 image = load_image(
     "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-560w,f_auto,q_auto:best/rockcms/2025-07/250709-Kpop-Demon-Hunters-vl-256p-ea5850.jpg"

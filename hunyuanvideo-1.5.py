@@ -26,40 +26,27 @@ NEGATIVE_PROMPT = (
 # ----------------------------
 # Load model
 # ----------------------------
-transformer = HunyuanVideoTransformer3DModel.from_pretrained(
-    MODEL_ID,
-    torch_dtype=torch.float16
-)
-
 pipe = HunyuanVideoPipeline.from_pretrained(
     MODEL_ID,
-    transformer=transformer,
     torch_dtype=torch.float16
-)
+).to("cuda")
 
-pipe = pipe.to("cuda")
-
-# Optional memory optimizations
 pipe.enable_model_cpu_offload()
 pipe.enable_vae_slicing()
 
 # ----------------------------
-# Generate video
+# Generate
 # ----------------------------
 with torch.autocast("cuda", dtype=torch.float16):
-    video_frames = pipe(
+    result = pipe(
         prompt=PROMPT,
         negative_prompt=NEGATIVE_PROMPT,
         num_frames=NUM_FRAMES,
         height=720,
         width=1280,
-        guidance_scale=7.0,
         num_inference_steps=30,
-    ).frames
+        guidance_scale=7.0,
+    )
 
-# ----------------------------
-# Export to MP4
-# ----------------------------
-export_to_video(video_frames, OUTPUT_VIDEO, fps=FPS)
-
-print(f"Video saved as {OUTPUT_VIDEO}")
+export_to_video(result.frames, OUTPUT_VIDEO, fps=FPS)
+print("Saved:", OUTPUT_VIDEO)

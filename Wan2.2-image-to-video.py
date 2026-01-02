@@ -13,7 +13,7 @@ dtype = torch.bfloat16
 pipe = WanImageToVideoPipeline.from_pretrained(
     model_id,
     torch_dtype=dtype,
-    device_map="auto",        # Automatically spread model across GPUs
+    device_map="cuda",        # Automatically spread model across GPUs
     low_cpu_mem_usage=True
 )
 

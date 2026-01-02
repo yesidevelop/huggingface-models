@@ -11,6 +11,8 @@ pipe = WanImageToVideoPipeline.from_pretrained(model_id, torch_dtype=dtype, low_
 pipe.to(device)
 
 pipe.enable_model_cpu_offload()
+pipe.vae.enable_tiling()
+pipe.enable_attention_slicing()
 
 
 image = load_image(

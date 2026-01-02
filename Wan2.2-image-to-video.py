@@ -2,18 +2,37 @@ import torch
 import numpy as np
 from diffusers import WanImageToVideoPipeline
 from diffusers.utils import export_to_video, load_image
+import os
 
 model_id = "Wan-AI/Wan2.2-I2V-A14B-Diffusers"
 dtype = torch.bfloat16
 device = "cuda"
 
-pipe = WanImageToVideoPipeline.from_pretrained(model_id, torch_dtype=dtype)
-pipe.to(device)
+# pipe = WanImageToVideoPipeline.from_pretrained(model_id, torch_dtype=dtype)
+
 
 # pipe.enable_model_cpu_offload()
 # pipe.vae.enable_tiling()
 # pipe.enable_attention_slicing()
 
+local_model_path = "./wan_i2v_local"
+
+if not os.path.exists(local_model_path):
+    print("Downloading model from Hugging Face and saving locally...")
+    pipe = WanImageToVideoPipeline.from_pretrained(
+        model_id,
+        torch_dtype=dtype
+    )
+    pipe.save_pretrained(local_model_path)
+else:
+    print("Loading model from local disk...")
+    pipe = WanImageToVideoPipeline.from_pretrained(
+        local_model_path,
+        torch_dtype=dtype,
+        local_files_only=True
+    )
+
+pipe.to(device)
 
 image = load_image(
     "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-560w,f_auto,q_auto:best/rockcms/2025-07/250709-Kpop-Demon-Hunters-vl-256p-ea5850.jpg"

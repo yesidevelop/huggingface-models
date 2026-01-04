@@ -14,10 +14,11 @@ pipe.enable_xformers_memory_efficient_attention()
 
 # Load IP-Adapter (THIS is the correct API)
 pipe.load_ip_adapter(
-    "IP-Adapter",
+    "h94/IP-Adapter",
     subfolder="sdxl_models",
     weight_name="ip-adapter_sdxl.safetensors"
 )
+
 
 # Reference image (puppy)
 ref_image = Image.open("images/poppy-with-outfit.png").convert("RGB")

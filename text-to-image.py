@@ -1,6 +1,6 @@
 import torch
 from diffusers import StableDiffusionXLImg2ImgPipeline
-from diffusers.utils import load_image
+from diffusers.utils import make_image_grid
 from PIL import Image
 
 pipe = StableDiffusionXLImg2ImgPipeline.from_pretrained(
@@ -12,8 +12,10 @@ local_image_path = "images/poppy-with-outfit.png"  # <-- change this to your loc
 init_image = Image.open(local_image_path).convert("RGB")
 
 prompt = "a photo of an astronaut riding a horse on mars"
-image = pipe(prompt, image=init_image).images
+image = pipe(prompt, image=init_image).images[0]
+make_image_grid([init_image, image], rows=1, cols=2)
 
 
-# Save the first generated image
-image[0].save("astronaut_on_horse.png")
+output_path = "output.png"
+image.save(output_path)
+print(f"Generated image saved at {output_path}")

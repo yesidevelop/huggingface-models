@@ -23,3 +23,5 @@ make_image_grid([init_image, image], rows=1, cols=2)
 output_path = "output-new.png"
 image.save(output_path)
 print(f"Generated image saved at {output_path}")
+
+# cat head anthropomorphic humanoid body, marvel movie poster, spiderman character, red spiderman suit, high detail, hyperrealistic, octane rendering. --ar 4:5 --no people, girls, human faces

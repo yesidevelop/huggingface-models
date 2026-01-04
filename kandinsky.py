@@ -1,6 +1,7 @@
 import torch
 from diffusers import AutoPipelineForImage2Image
 from diffusers.utils import make_image_grid, load_image
+from PIL import Image
 
 pipeline = AutoPipelineForImage2Image.from_pretrained(
     "kandinsky-community/kandinsky-2-2-decoder", torch_dtype=torch.float16, use_safetensors=True

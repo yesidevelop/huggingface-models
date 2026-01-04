@@ -13,7 +13,7 @@ pipeline.enable_model_cpu_offload()
 local_image_path = "images/poppy-with-outfit.png"  # <-- change this to your local image path
 init_image = Image.open(local_image_path).convert("RGB")
 
-prompt = "Zoomed-out full view of a bright, cheerful playroom with an anthropomorphic puppy, Poppy, playing energetically. The entire room is visible, showing a cozy TV lounge, colorful furniture, and well-decorated walls with framed pictures of scenic landscapes. Toys are scattered everywhere: toy cars, balls, stuffed animals, building blocks, and other playful items covering the floor and shelves. Poppy is mid-action, interacting with toys, mischievous and cute expression. Bright, high-lit, warm lighting, vibrant colors, cartoonish yet detailed textures, family-friendly style, cinematic perspective capturing the full layout of the room, playful chaos, and lively atmosphere."
+prompt = "A small, cute puppy sitting in a bright, cheerful living room. The room is full of colorful toys scattered on the floor: balls, cars, and stuffed animals. There is a TV lounge with a sofa and a coffee table. Walls are decorated with framed pictures of landscapes and cute illustrations. Sunlight coming through large windows, soft shadows, high-resolution, realistic lighting, cozy and inviting atmosphere, cinematic perspective showing the whole room, warm and vibrant colors."
 
 # pass prompt and image to pipeline
 image = pipeline(prompt, image=init_image).images[0]

@@ -19,3 +19,7 @@ prompt = "Puppy in a room full of toys, 8k"
 # pass prompt and image to pipeline
 image = pipeline(prompt, image=init_image).images[0]
 make_image_grid([init_image, image], rows=1, cols=2)
+
+output_path = "output-new.png"
+image.save(output_path)
+print(f"Generated image saved at {output_path}")

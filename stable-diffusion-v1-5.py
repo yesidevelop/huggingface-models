@@ -18,3 +18,7 @@ prompt = "Zoomed-out full view of a bright, cheerful playroom with an anthropomo
 # pass prompt and image to pipeline
 image = pipeline(prompt, image=init_image).images[0]
 make_image_grid([init_image, image], rows=1, cols=2)
+
+output_path = "output.png"
+image.save(output_path)
+print(f"Generated image saved at {output_path}")

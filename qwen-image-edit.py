@@ -6,10 +6,12 @@ from diffusers import QwenImageEditPlusPipeline
 pipeline = QwenImageEditPlusPipeline.from_pretrained("Qwen/Qwen-Image-Edit-2509", torch_dtype=torch.bfloat16)
 print("pipeline loaded")
 
-pipeline.to('cuda')
+
 pipeline.set_progress_bar_config(disable=None)
 pipeline.enable_model_cpu_offload()
 pipeline.vae.enable_tiling()
+
+pipeline.to('cuda')
 image1 = Image.open("images/poppy.png")
 image2 = Image.open("images/dada.png")
 prompt = "The big dog in martial arts suit is on the left, the puppy with skyblue suit is on the right, facing each other in the central park square."

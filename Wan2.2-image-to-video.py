@@ -144,3 +144,11 @@ torchrun --nproc_per_node=4 generate.py \
   --t5_fsdp \
   --ulysses_size 4 \
   --prompt "Cinematic video of a female yoga instructor in a pink outfit performing Tree Pose in a sunlit, minimalist studio. She balances steadily on one leg with hands in prayer position, eyes closed, calm expression, sharp focus on her engaged core. Warm natural light, soft shadows, serene atmosphere, high realism."
+
+
+torchrun generate.py \
+  --task i2v-A14B \
+  --size 480*832 \
+  --ckpt_dir ./Wan2.2-I2V-A14B \
+  --image poppy-dada-playing.png \
+  --prompt "Full-body scene in Central Park square: Dada, a big dog wearing a martial arts suit, 6 feet tall, on the left, shouting angrily at Poppy, showing clear signs of frustration and anger in his expression and posture, trying to stop Poppy from playing roughly with toys like a frisbee, a red rubber ball, a squeaky bone, and a plush teddy bear. Poppy, a small puppy wearing a sky-blue suit, 2 feet tall, on the right, looking sad and remorseful, ears drooping and eyes downcast, clearly upset by Dada’s shouting. Highly realistic textures for fur and clothing, natural daylight, dynamic and expressive poses, high-resolution, photorealistic rendering of the park environment. No slow motion, capturing the moment as it naturally happens."

@@ -22,6 +22,8 @@ inputs = {
     "num_inference_steps": 40,
     "guidance_scale": 1.0,
     "num_images_per_prompt": 1,
+    "height": 1280,
+    "width": 720,
 }
 with torch.inference_mode():
     output = pipeline(**inputs)

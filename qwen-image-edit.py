@@ -11,7 +11,7 @@ pipeline.set_progress_bar_config(disable=None)
 image1 = Image.open("/home/ubuntu/huggingface-models/images/poppy.png")
 image2 = Image.open("/home/ubuntu/huggingface-models/images/dada-real.png")
 image3 = Image.open("/home/ubuntu/huggingface-models/images/last_frame.jpg")
-prompt = "A tall 6 feet tall dada in the martial arts suit, looking angry and worried as he scolds to small 2 feet kid poppy who plays with fire. His expression shows frustration and concern because a fire has caught the sofa. Puppy looks sad and scared, ears slightly drooped, eyes wide with guilt and fear. The camera is zoomed in on Poppy, capturing her emotional reaction to the dangerous situation. The room is visible with a burning sofa, subtle smoke and light reflections, realistic fire effects. Cinematic lighting, high-resolution, natural textures, dynamic shadows, realistic style, no cartoonish elements. Motion is natural and fluid, emphasizing the urgency and tension of the scene."
+prompt = "A tall 6 feet tall dada in the martial arts suit, looking angry and worried as he scolds to small 2 feet height kid poppy who plays with fire. His expression shows frustration and concern because a fire has caught the sofa. Puppy looks sad and scared, ears slightly drooped, eyes wide with guilt and fear. The camera is zoomed in on Poppy, capturing her emotional reaction to the dangerous situation. The room is visible with a burning sofa, subtle smoke and light reflections, realistic fire effects. Cinematic lighting, high-resolution, natural textures, dynamic shadows, realistic style, no cartoonish elements. Motion is natural and fluid, emphasizing the urgency and tension of the scene."
 inputs = {
     "image": [image1, image2, image3],
     # "image": [image1],

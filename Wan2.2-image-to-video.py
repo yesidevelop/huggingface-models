@@ -159,4 +159,13 @@ torchrun generate.py \
   --size 480*832 \
   --ckpt_dir ./Wan2.2-I2V-A14B \
   --image /home/ubuntu/huggingface-models/images/poppy-plays-with-fire.png \
-  --prompt "Full-room 4K video of a living room, showing a small puppy in excitement playing dangerously with real fire on the floor. The puppy touches the fire, quickly pulls back its paw in sudden pain, showing realistic reaction. The room has a TV mounted on the wall, grey sofa, white rug, and two grey chairs. Shelves display toys including a teddy bear and puzzles. Blocks and a blue toy truck are scattered on the floor. Dynamic camera movement circling around the room to capture the entire space and all elements. No slow motion, realistic textures and lighting for furniture, toys, rug, fire, and puppy. High-resolution, original, full-room perspective, cinematic realism."
+  --prompt "Full-room 4K video of a living room, showing a small puppy in excitement playing dangerously with real fire on the floor. The puppy touches the fire, quickly pulls back its paw in sudden pain, showing realistic reaction. The room has a TV mounted on the wall, grey sofa, white rug, and two grey chairs. Shelves display toys including a teddy bear and puzzles. Blocks and a blue toy truck are scattered on the floor. Dynamic camera movement circling around the room to capture the entire space and all elements. Realistic visuals and lighting for furniture, toys, rug, fire, and puppy. High-resolution, original, full-room perspective, cinematic realism."
+    
+
+
+torchrun generate.py \
+  --task i2v-A14B \
+  --size 480*832 \
+  --ckpt_dir ./Wan2.2-I2V-A14B \
+  --image /home/ubuntu/huggingface-models/images/poppy-plays-with-fire.png \
+  --prompt "Full-room 4K scene of a living room in chaos, showing a small puppy in excitement playing with fire. The fire has spread to the grey sofa and is actively burning it, flames rising and smoke starting to fill the room. The room includes a TV mounted on the wall, a white rug, and two grey chairs. Shelves display toys including a teddy bear and puzzles, while blocks and a blue toy truck are scattered on the floor. Zoom camera angle to capture the chaos and sofa fire clearly. Realistic textures, lighting, and fire effects. Full-room perspective, high-resolution, cinematic, original, fast motion, realistic style."

@@ -10,7 +10,7 @@ pipeline.to('cuda')
 pipeline.set_progress_bar_config(disable=None)
 image1 = Image.open("images/poppy.png")
 image2 = Image.open("images/dada.png")
-prompt = "The big dog in martial arts suit is on the left, the puppy with skyblue suit is on the right, facing each other in the central park square."
+prompt = "Full-body scene in Central Park square: Dada, a big dog wearing a martial arts suit, 6 feet tall, on the left, looking at Poppy with a gentle warning, as if saying “don’t break the toys”; Poppy, a small puppy wearing a sky-blue suit, 2 feet tall, on the right, playfully interacting with toys such as a red rubber ball, a small frisbee, a squeaky bone, and a plush teddy bear. Highly realistic textures for fur and clothing, natural lighting, dynamic expressions and posture, high-resolution, photorealistic rendering, detailed environment of the park square."
 inputs = {
     "image": [image1, image2],
     "prompt": prompt,

@@ -2,17 +2,26 @@ import os
 import torch
 from PIL import Image
 from diffusers import QwenImageEditPlusPipeline
+from accelerate import init_empty_weights, dispatch_model
 
-pipeline = QwenImageEditPlusPipeline.from_pretrained("Qwen/Qwen-Image-Edit-2509", torch_dtype=torch.bfloat16)
+# pipeline = QwenImageEditPlusPipeline.from_pretrained("Qwen/Qwen-Image-Edit-2509", torch_dtype=torch.bfloat16)
 print("pipeline loaded")
 
+with init_empty_weights():
+    pipeline = QwenImageEditPlusPipeline.from_pretrained(
+        "Qwen/Qwen-Image-Edit-2509",
+        torch_dtype=torch.bfloat16
+    )
 
-# pipeline.set_progress_bar_config(disable=None)
-pipeline.enable_model_cpu_offload()
-pipeline.vae.enable_tiling()
+pipeline = dispatch_model(pipeline, device_map="auto")  
+
+
+# --- Enable memory-saving features ---
 pipeline.enable_attention_slicing()
+pipeline.vae.enable_tiling()
+pipeline.enable_model_cpu_offload()
 
-pipeline.to('cuda')
+# pipeline.to('cuda')
 image1 = Image.open("images/poppy.png")
 image2 = Image.open("images/dada.png")
 prompt = "The big dog in martial arts suit is on the left, the puppy with skyblue suit is on the right, facing each other in the central park square."

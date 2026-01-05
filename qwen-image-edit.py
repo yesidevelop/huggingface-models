@@ -8,11 +8,12 @@ print("pipeline loaded")
 
 pipeline.to('cuda')
 pipeline.set_progress_bar_config(disable=None)
-image1 = Image.open("images/poppy.png")
-image2 = Image.open("images/dada.png")
-prompt = "Full-body scene in Central Park square: Dada, a big dog wearing a martial arts suit, 6 feet tall, on the left, looking at Poppy with a gentle warning, as if saying “don’t break the toys”; Poppy, a small puppy wearing a sky-blue suit, 2 feet tall, on the right, playfully interacting with toys such as a red rubber ball, a small frisbee, a squeaky bone, and a plush teddy bear. Highly realistic textures for fur and clothing, natural lighting, dynamic expressions and posture, high-resolution, photorealistic rendering, detailed environment of the park square."
+# image1 = Image.open("images/poppy.png")
+image2 = Image.open("images/dada-real.png")
+prompt = "Full-room view of a living room, showing a small puppy playing dangerously with real fire on the floor. The room has a TV mounted on the wall, a grey sofa, a white rug, and two grey chairs. A chandelier hangs from the ceiling. Shelves display toys including a teddy bear and puzzles. Scattered blocks and a blue toy truck are on the floor. The scene is dynamic and chaotic, emphasizing the danger of the fire interacting with the puppy. Realistic lighting and textures for furniture, rug, toys, and fire, full-room perspective showing all elements clearly, high-resolution, realistic style"
 inputs = {
-    "image": [image1, image2],
+    # "image": [image1, image2],
+    "image": [image2],
     "prompt": prompt,
     "generator": torch.manual_seed(0),
     "true_cfg_scale": 4.0,

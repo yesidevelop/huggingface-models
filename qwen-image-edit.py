@@ -7,7 +7,7 @@ pipeline = QwenImageEditPlusPipeline.from_pretrained("Qwen/Qwen-Image-Edit-2509"
 print("pipeline loaded")
 
 
-pipeline.set_progress_bar_config(disable=None)
+# pipeline.set_progress_bar_config(disable=None)
 pipeline.enable_model_cpu_offload()
 pipeline.vae.enable_tiling()
 pipeline.enable_attention_slicing()

@@ -152,3 +152,11 @@ torchrun generate.py \
   --ckpt_dir ./Wan2.2-I2V-A14B \
   --image poppy-dada-playing.png \
   --prompt "Full-body scene in Central Park square: Dada, a big dog wearing a martial arts suit, 6 feet tall, on the left, shouting angrily at Poppy, showing clear signs of frustration and anger in his expression and posture, trying to stop Poppy from playing roughly with toys like a frisbee, a red rubber ball, a squeaky bone, and a plush teddy bear. Poppy, a small puppy wearing a sky-blue suit, 2 feet tall, on the right, looking sad and remorseful, ears drooping and eyes downcast, clearly upset by Dada’s shouting. Highly realistic textures for fur and clothing, natural daylight, dynamic and expressive poses, high-resolution, photorealistic rendering of the park environment. No slow motion, capturing the moment as it naturally happens."
+
+
+torchrun generate.py \
+  --task i2v-A14B \
+  --size 480*832 \
+  --ckpt_dir ./Wan2.2-I2V-A14B \
+  --image /home/ubuntu/huggingface-models/images/poppy-plays-with-fire.png \
+  --prompt "Full-room 4K video of a living room, showing a small puppy in excitement playing dangerously with real fire on the floor. The puppy touches the fire, quickly pulls back its paw in sudden pain, showing realistic reaction. The room has a TV mounted on the wall, grey sofa, white rug, and two grey chairs. Shelves display toys including a teddy bear and puzzles. Blocks and a blue toy truck are scattered on the floor. Dynamic camera movement circling around the room to capture the entire space and all elements. No slow motion, realistic textures and lighting for furniture, toys, rug, fire, and puppy. High-resolution, original, full-room perspective, cinematic realism."

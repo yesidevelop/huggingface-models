@@ -22,7 +22,7 @@ inputs = {
     "generator": torch.manual_seed(0),
     "true_cfg_scale": 4.0,
     "negative_prompt": " ",
-    "num_inference_steps": 40,
+    "num_inference_steps": 20,
     "guidance_scale": 1.0,
     "num_images_per_prompt": 1,
 }

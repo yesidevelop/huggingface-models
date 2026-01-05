@@ -10,6 +10,7 @@ print("pipeline loaded")
 pipeline.set_progress_bar_config(disable=None)
 pipeline.enable_model_cpu_offload()
 pipeline.vae.enable_tiling()
+pipeline.enable_attention_slicing()
 
 pipeline.to('cuda')
 image1 = Image.open("images/poppy.png")

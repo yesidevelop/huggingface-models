@@ -4,7 +4,7 @@ import scipy
 synthesiser = pipeline("text-to-audio", "facebook/musicgen-large")
 
 prompt = (
-    "A playful, upbeat children’s song featuring cute cat ‘meow’ vocalizations used rhythmically as hooks, bouncy melody, simple joyful harmony, bright and cheerful mood, medium-fast tempo, light percussion, soft synths and bells, cartoon-like and innocent, loop-friendly, wholesome and fun, suitable for a kids animation or cute animal video."
+    "A cheerful, upbeat song where the main melody is played by a cat meowing repeatedly, pop music style"
 )
 music = synthesiser(prompt, forward_params={"do_sample": True, "max_new_tokens": 800})
 

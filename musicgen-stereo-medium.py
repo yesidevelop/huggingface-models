@@ -4,7 +4,7 @@ import scipy
 synthesiser = pipeline("text-to-audio", "facebook/musicgen-large")
 
 prompt = (
-    "A single continuous cinematic instrumental composition that evolves smoothly from beginning to end with no cuts, no pauses, and no abrupt transitions; opening with a slow, gentle, and mysterious mood in a minor key at approximately 55 BPM using soft ambient pads, distant strings, and light piano textures; gradually increasing tension in the middle section through subtle dissonant harmonies, deeper string drones, low pulsing bass, and restrained rhythmic movement while maintaining smooth continuity and rising anticipation; final section resolving into a warm, uplifting, and hopeful mood by slowly shifting toward a major key feel, introducing brighter harmonies, gentle melodic strings, and soft orchestral warmth; dynamics rise naturally and then settle without climax spikes; no breakdowns, no silence, no tempo jumps; cohesive thematic identity throughout; smooth looping ending; instrumental only; no vocals, no lyrics; cinematic, emotional, and uniquely atmospheric."
+    "A playful, upbeat children’s song featuring cute cat ‘meow’ vocalizations used rhythmically as hooks, bouncy melody, simple joyful harmony, bright and cheerful mood, medium-fast tempo, light percussion, soft synths and bells, cartoon-like and innocent, loop-friendly, wholesome and fun, suitable for a kids animation or cute animal video."
 )
 music = synthesiser(prompt, forward_params={"do_sample": True, "max_new_tokens": 800})
 

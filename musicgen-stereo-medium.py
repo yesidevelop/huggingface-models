@@ -4,7 +4,7 @@ import scipy
 synthesiser = pipeline("text-to-audio", "facebook/musicgen-large")
 
 prompt = (
-    "A slow, cinematic dark-fantasy background score with a haunting, emotional tone; minor key; steady tempo around 60–70 BPM; soft sustained strings and low cello drones as the foundation; distant female choir pads used sparingly for atmosphere, not melody; subtle piano notes with long reverb; light ambient textures like wind, breath, and room tone; no strong rhythm or percussion; no abrupt transitions; smooth looping structure; restrained dynamics; melancholic, mysterious, and somber mood; suitable as continuous background music for a dark fairy-tale scene involving a quiet child and an ominous witch; instrumental only; no vocals, no lyrics; cinematic, minimal, and unobtrusive."
+    "A high-energy, loud funky instrumental track with a strong, infectious groove; tempo around 105–115 BPM; tight electric bass with prominent slap and syncopated patterns; rhythmic clean electric guitar playing muted funk strums; punchy brass stabs used sparingly; steady drum kit with crisp hi-hats and snare backbeat; bright analog synth accents; consistent rhythm throughout; no breakdowns, no tempo changes; upbeat, playful, and confident mood; clean modern production; instrumental only; suitable as a continuous background groove with a smooth looping structure."
 )
 music = synthesiser(prompt, forward_params={"do_sample": True, "max_new_tokens": 800})
 

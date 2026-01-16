@@ -1,8 +1,11 @@
-from transformers import pipeline
-import scipy
+from transformers import AutoProcessor, AutoModel
 
-synthesiser = pipeline("text-to-speech", "suno/bark")
+processor = AutoProcessor.from_pretrained("suno/bark-small")
+model = AutoModel.from_pretrained("suno/bark-small")
 
-speech = synthesiser("Hello, my dog is cooler than you!", forward_params={"do_sample": True})
+inputs = processor(
+    text=["Hello, my name is Suno. And, uh — and I like pizza. [laughs] But I also have other interests such as playing tic tac toe."],
+    return_tensors="pt",
+)
 
-scipy.io.wavfile.write("bark_out.wav", rate=speech["sampling_rate"], data=speech["audio"])
+speech_values = model.generate(**inputs, do_sample=True)

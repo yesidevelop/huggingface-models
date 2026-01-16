@@ -9,12 +9,12 @@ processor = AutoProcessor.from_pretrained(model_id)
 model = CsmForConditionalGeneration.from_pretrained(model_id, device_map=device)
 
 # prepare the inputs
-text = "[0]Ha ha ha ha ha!" # `[0]` for speaker id 0
+text = "[0]Hi there." # `[0]` for speaker id 0
 inputs = processor(text, add_special_tokens=True).to(device)
 
 # another equivalent way to prepare the inputs
 conversation = [
-    {"role": "0", "content": [{"type": "text", "text": text}]},
+    {"role": "0", "content": [{"type": "text", "text": "Hello from Sesame."}]},
 ]
 inputs = processor.apply_chat_template(
     conversation,

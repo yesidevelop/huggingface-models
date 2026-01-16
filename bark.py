@@ -1,4 +1,5 @@
 from transformers import AutoProcessor, AutoModel
+import scipy
 
 processor = AutoProcessor.from_pretrained("suno/bark-small")
 model = AutoModel.from_pretrained("suno/bark-small")
@@ -9,3 +10,6 @@ inputs = processor(
 )
 
 speech_values = model.generate(**inputs, do_sample=True)
+
+sampling_rate = model.config.sample_rate
+scipy.io.wavfile.write("bark_out.wav", rate=sampling_rate, data=speech_values.cpu().numpy().squeeze())

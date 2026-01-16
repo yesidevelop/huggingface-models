@@ -4,7 +4,7 @@ import scipy
 synthesiser = pipeline("text-to-audio", "facebook/musicgen-large")
 
 prompt = (
-    "Cinematic orchestral score, soft tremolo strings, haunting solo cello, minimal piano notes with high reverb, subtle low-frequency pulses, suspenseful atmosphere, mysterious and slow-paced, high quality, 48kHz."
+    "Dark pop instrumental, steady 808 heartbeat kick drum, crisp closed hi-hats, soft suspenseful synth drones, muted plucked guitar, minor key, 95 BPM, atmospheric and tense, rhythmic but quiet."
 )
 music = synthesiser(prompt, forward_params={"do_sample": True, "max_new_tokens": 800})
 

@@ -14,7 +14,7 @@ inputs = processor(text, add_special_tokens=True).to(device)
 
 # another equivalent way to prepare the inputs
 conversation = [
-    {"role": "0", "content": [{"type": "text", "text": "(laughing warmly, light and natural)"}]},
+    {"role": "0", "content": [{"type": "text", "text": "Hello from Sesame."}]},
 ]
 inputs = processor.apply_chat_template(
     conversation,

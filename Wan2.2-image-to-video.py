@@ -84,7 +84,20 @@ print("Video saved as i2v_output.mp4")
 
 # torchrun --nproc_per_node=4 generate.py --task i2v-A14B --size 1280*720 --ckpt_dir ./Wan2.2-I2V-A14B --image daemon.jpg --dit_fsdp --t5_fsdp --ulysses_size 4 --prompt "A dynamic concert scene of three animated female K-pop idols performing on a neon-lit stage with dramatic fantasy lighting, energetic choreography, and modern futuristic costumes inspired by Korean pop culture, vibrant colors, dramatic motion blur, anime-influenced stylized 3D animation, detailed expressions and synchronized dance poses, high energy performance with musical instruments and light effects, cinematic composition, ultra-detailed, sharp focus, hype crowd in background."
 
+#python 3.11, torch 2.5
 # pip install https://github.com/Dao-AILab/flash-attention/releases/download/v2.8.3/flash_attn-2.8.3+cu12torch2.5cxx11abiFALSE-cp311-cp311-linux_x86_64.whl
+
+#python 3.12, torch 2.9
+# pip install https://github.com/Dao-AILab/flash-attention/releases/download/v2.8.3/flash_attn-2.8.3+cu12torch2.9cxx11abiTRUE-cp312-cp312-linux_x86_64.whl
+
+
+# pip install https://github.com/Dao-AILab/flash-attention/releases/download/v2.8.3/flash_attn-2.8.3+cu12torch2.6cxx11abiTRUE-cp312-cp312-linux_x86_64.whl
+
+
+# pip install https://github.com/Dao-AILab/flash-attention/releases/download/v2.8.3/flash_attn-2.8.3+cu12torch2.9cxx11abiTRUE-cp312-cp312-linux_x86_64.whl
+
+
+
 
 #torchrun --nproc_per_node=4 generate.py --task i2v-A14B --size 1280*720 --ckpt_dir ./Wan2.2-I2V-A14B --image examples/i2v_input.JPG --dit_fsdp --t5_fsdp --ulysses_size 4 --prompt "Summer beach vacation style, a white cat wearing sunglasses sits on a surfboard. The fluffy-furred feline gazes directly at the camera with a relaxed expression. Blurred beach scenery forms the background featuring crystal-clear waters, distant green hills, and a blue sky dotted with white clouds. The cat assumes a naturally relaxed posture, as if savoring the sea breeze and warm sunlight. A close-up shot highlights the feline's intricate details and the refreshing atmosphere of the seaside."
 

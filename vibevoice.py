@@ -1,11 +1,18 @@
 import torch
 import soundfile as sf
-from transformers import AutoProcessor, AutoModel
+from transformers import AutoTokenizer, AutoModel
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
-processor = AutoProcessor.from_pretrained("microsoft/VibeVoice-1.5B")
-model = AutoModel.from_pretrained("microsoft/VibeVoice-1.5B").to(device)
+tokenizer = AutoTokenizer.from_pretrained(
+    "microsoft/VibeVoice-1.5B",
+    trust_remote_code=True
+)
+
+model = AutoModel.from_pretrained(
+    "microsoft/VibeVoice-1.5B",
+    trust_remote_code=True
+).to(device)
 
 text = """
 The forest was silent, except for the distant sound of wind moving through the trees.

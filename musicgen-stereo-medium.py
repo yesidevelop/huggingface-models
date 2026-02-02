@@ -4,7 +4,7 @@ import scipy
 synthesiser = pipeline("text-to-audio", "facebook/musicgen-large")
 
 prompt = (
-    "Whimsical fairy-tale music with delicate chimes, music box bells, soft harp, and warm ambient textures. Innocent, joyful, and magical feeling, like a bedtime story."
+    "Cinematic fairy tale soundtrack, slow and ethereal, ethereal chime harp arpeggios, soaring emotional solo violin melody, magical atmosphere, lush reverb, 60 BPM, mystical and enchanting."
 )
 music = synthesiser(prompt, forward_params={"do_sample": True, "max_new_tokens": 1600})
 

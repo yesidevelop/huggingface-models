@@ -4,7 +4,7 @@ import scipy
 synthesiser = pipeline("text-to-audio", "facebook/musicgen-large")
 
 prompt = (
-    "Cinematic fairy tale soundtrack, slow and ethereal, ethereal chime harp arpeggios, soaring emotional solo violin melody, magical atmosphere, lush reverb, 60 BPM, mystical and enchanting."
+    "[Instrumental] A slow, cinematic fairy tale theme. Begins with a delicate chime harp and celesta duet. A soulful solo violin enters with a sweeping melody, supported by an ethereal female choir and light flute trills. Orchestral, magical, 60 BPM, high-fidelity, soaring and emotional."
 )
 music = synthesiser(prompt, forward_params={"do_sample": True, "max_new_tokens": 1600})
 
